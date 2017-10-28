@@ -1,0 +1,13 @@
+dependencies {
+	
+   //hibernate dependencies	
+   compile  'org.hibernate:hibernate-core:4.3.6.Final'
+   compile 'org.slf4j:slf4j-simple:1.7.7'
+   compile 'org.javassist:javassist:3.15.0-GA'
+   compile 'mysql:mysql-connector-java:5.1.31'
+   compile group: 'org.jboss.logging', name: 'jboss-logging', version: '3.1.0.CR1'
+   
+
+   //mysql dependency
+   runtime 'mysql:mysql-connector-java:5.1.41'
+}

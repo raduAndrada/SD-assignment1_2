@@ -1,0 +1,46 @@
+.login-body {
+	background:
+		url('img/login_background.jpg');
+	color: white;
+	margin-top:10%;
+	margin-left:40%;
+}
+
+div:empty {
+	display: none;
+}
+"build.gradle"
+/*added styles for navbar*/
+.navbar-default
+	{
+	color: rgba(128, 0, 32, 1); /*Sets the text hover color on navbar*/
+	background-color: #f0f1f7;
+	
+}
+
+
+.nav>li>a:hover, .nav>li>a:focus,.nav>button:focus {
+	text-decoration: none;
+	background-color: white;
+}
+
+
+
+.navbar-brand {
+	position: relative;
+	width: 255px;
+	left: 15px;
+	background-size: contain;
+}
+
+.datetimepicker-span{
+	background:gray;
+	color:white;
+	width: 10%;
+	
+}
+
+.check-box-big{
+	width: 20px; 
+	height: 20px;
+}

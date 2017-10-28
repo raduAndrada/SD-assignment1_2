@@ -1,0 +1,38 @@
+plugins {
+  
+  //gretty with tomcat and jetty
+  id "org.akhikhl.gretty" version "2.0.0"
+  
+  
+  //to make it an web project
+  id 'war'
+  
+}
+
+gretty {
+  debugPort = 5005      // default
+  debugSuspend = true   // default
+   contextPath = '/assignment1_2'
+}
+
+dependencies {
+	
+   compile project(':assignment1_2-business')	
+   //hibernate dependencies	
+   compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+   compile 'org.javassist:javassist:3.15.0-GA'
+   
+   
+   //compile dependency to start the localhost:8080 	
+   providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
+    
+   
+   //front end dependencies to make jsps cool
+   runtime 'org.webjars:bootstrap:3.3.7'
+   runtime 'org.webjars:font-awesome:4.7.0'
+   runtime 'org.webjars:jquery:3.2.1'
+   runtime 'org.webjars:jquery-ui:1.12.1'  
+   runtime 'org.webjars:webjars-locator:0.32-1'
+   runtime 'org.webjars:bootstrap-datetimepicker:2.3.5'
+
+}

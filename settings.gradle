@@ -1,0 +1,4 @@
+rootProject.name = 'assignment1_2'
+include 'assignment1_2-presentation'
+include 'assignment1_2-business'
+include 'assignment1_2-data-access'

@@ -1,0 +1,64 @@
+buildscript {
+	    repositories {
+		    maven {
+		      url 'https://plugins.gradle.org/m2/'
+		    }
+		    mavenCentral()
+		  }
+}
+	
+
+allprojects {	
+		group = 'sd'
+		version = '0.0.1-SNAPSHOT'
+		description = """assignment1_2"""
+		
+		repositories {
+			     mavenCentral()
+			    
+			}
+	}
+	
+
+subprojects{
+	
+				apply plugin: 'java'
+				apply plugin: 'eclipse'
+				apply plugin: 'maven'
+				
+				sourceCompatibility = 1.8
+				targetCompatibility = 1.8
+				tasks.withType(JavaCompile) {
+					options.encoding = 'UTF-8'
+				}
+			
+				sourceSets {
+				   main {
+				      java {
+					 srcDir 'src'
+				      }
+				      resources {
+					 srcDir 'src'
+				      }
+				   }
+				
+				   test {
+				      java {
+					 srcDir 'test'
+				      }
+				      resources {
+					 srcDir 'test'
+				      }
+				   }
+				}
+			
+				
+				dependencies {
+					
+					compile 'com.google.guava:guava:19.0'
+					testCompile 'junit:junit:4.12'
+			
+				}
+	}
+	
+		

@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/flight-db</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">warlord</property>
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="show_sql">false</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="ro.utcn.sd.assign.one.entities.Usr" />
+		<mapping class="ro.utcn.sd.assign.one.entities.Flgt" />
+		<mapping class="ro.utcn.sd.assign.one.entities.Ct" />
+		<mapping class="ro.utcn.sd.assign.one.entities.UsrFlgt" />
+	</session-factory>
+</hibernate-configuration> 
