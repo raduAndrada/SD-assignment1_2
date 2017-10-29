@@ -88,7 +88,9 @@ public class AdmBusinessImpl implements AdmBusiness {
 
 	@Override
 	public Usr updateUsr(String email, Usr updateUsr) {
+		
 		if (checkEmail(email)) {
+			
 			throw new BusinessException("Email doesn't exist");
 		}
 		final Usr usr = usrDAO.findUsr(email);

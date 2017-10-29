@@ -127,23 +127,30 @@ public class UsrServlet extends HttpServlet {
 		// get unique identifier email in case of update
 		final String usrEmail = request.getParameter(USR_EMAIL);
 
+		
 		// get unique identifir in case of delete
 		final String usrDeleteEmail = request.getParameter(USR_DELETE_EMAIL);
 
+		
 		// if we got the usrEmail param then we need to update the usr and the view
 		if (usrEmail != null && !usrEmail.isEmpty() && usr != null) {
 			try {
+				
 				request = validateUsr(usr, request);
+				usr.setEmail(usrEmail);
 				final boolean isValid = (boolean) request.getAttribute(USR_VALID);
 				if (!isValid) {
 					throw new BusinessException("Invalid data for user");
 				}
-				admBusiness.updateUsr(usrEmail, usr);
+				Usr updated = admBusiness.updateUsr(usrEmail, usr);
+				
+				
 				request.setAttribute(MODE, UPDATE);
 				usr.setEmail(usrEmail);
-				request.setAttribute(USR, usr);
+				request.setAttribute(USR, updated);
 				request.setAttribute(SUCCESS_MESSAGE,
 						String.format("User with email: %s successfully updated", usrEmail));
+				
 				request.getRequestDispatcher(USR_DETAILS_VIEW).forward(request, response);
 			} catch (final Exception e) {
 				request.setAttribute(ERROR_MESSAGE, e.getMessage());
@@ -191,6 +198,7 @@ public class UsrServlet extends HttpServlet {
 			} catch (final Exception e) {
 				request.setAttribute(ERROR_MESSAGE, e.getMessage());
 				request.setAttribute(MODE, CREATE);
+				request.setAttribute(USR, usr);
 				request.getRequestDispatcher(USR_DETAILS_VIEW).forward(request, response);
 			}
 		}
@@ -227,7 +235,7 @@ public class UsrServlet extends HttpServlet {
 			request.setAttribute(SER_ID_WRONG, "Id series have 8 characters");
 			usrValid = false;
 		}
-		if (!usr.getEmail().contains("@") && !usr.getEmail().contains(".")) {
+		if (usr.getEmail() != null && !usr.getEmail().contains("@") && !usr.getEmail().contains(".")) {
 			request.setAttribute(EMAIL_WRONG, "The email address is not valid");
 			usrValid = false;
 		}
